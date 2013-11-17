@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<a href="/users">Users</a> | <a href="/categories">Categories</a> | <a href="/nuggets">Nuggets</a>
+
 <% if current_user %>
     <% if current_user.admin %> Admin <% end %>| <a href="/logout">Logout</a>
 <% else %>
