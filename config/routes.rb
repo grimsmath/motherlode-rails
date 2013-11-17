@@ -1,10 +1,9 @@
 Motherlode::Application.routes.draw do
   resources :nuggets
-
   resources :categories
-  root 'categories#index'
+  reqources :users
 
-  resources :users
+  root 'categories#index'
 
   get '/logout' => 'sessions#destroy'
   get '/login' => 'sessions#new'
