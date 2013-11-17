@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :current_user
+  def current_product
+    @current_product = Category.find(4)
+  end
+
+  helper_method :current_user, :current_product
 end
