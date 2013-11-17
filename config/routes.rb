@@ -3,8 +3,8 @@ Motherlode::Application.routes.draw do
   resources :categories
   resources :users
   resources :sessions, only: [:create, :destroy, :new]
-  get :login, 'sessions#create'
-  get :logout, 'sessions#destroy'
+  get 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
 
   root 'categories#index'
 
