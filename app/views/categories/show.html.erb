@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
+<% unless @category == current_product %>
+    <h2><%= @category.name %></h2>
+    <p><%= @category.description %></p>
+<% end %>
 
-<h2><%= @category.name %></h2>
-<p><%= @category.description %></p>
-<%= link_to 'Edit', edit_category_path(@category) %>
-<ul>
   <% @category.children.each do |child_category| %>
-  <li><%= link_to child_category.name, child_category %></li>
+    <div class="panel">
+      <%= link_to child_category.name, child_category%>
+    </div>
   <% end %>
-</ul>
+
 
 <%= link_to 'Back', @category.parent if @category.parent%>
+
+<%= link_to 'Edit', edit_category_path(@category) %>

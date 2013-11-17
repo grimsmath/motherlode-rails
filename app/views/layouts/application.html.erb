@@ -11,27 +11,35 @@
 <body>
 
 <div class="row">
-  <div class="large-9 columns">
-    <%= yield %>
+  <div class="large-6 columns">
+    <h1><%= current_product.name %></h1>
   </div>
-  <div class="large-3 columns">
+  <div class="large-6 columns text-right">
     <% if current_user %>
         Welcome back, <%= current_user.username %><br />
-        <%= link_to 'My Account', current_user %> | <%= link_to 'Sign Out', :logout%>
+        <%= link_to 'My Account', current_user %> |
+        <% if current_user.admin %>
+            <%= link_to 'Administer Products', users_path %> |
+            <%= link_to 'Manage Users', users_path %> |
+        <% end %>
+        <%= link_to 'Sign Out', :logout%>
     <% else %>
         <%= link_to 'Sign In', :login %>
     <% end %>
-
-    <ul class="side-nav">
-      <% if current_user && current_user.admin %>
-          <li><strong>Product Administration</strong></li>
-          <li><%= link_to 'Users', users_path %></li>
-          <li><%= link_to 'Categories', categories_path %></li>
-          <li><%= link_to 'Nuggets', nuggets_path %></li>
-      <% end %>
-    </ul>
   </div>
 </div>
-
+<div class="row">
+  <div class="columns">
+    <% if notice %>
+        <div data-alert class="alert-box">
+          <%= notice %>
+          <a href="#" class="close">&times;</a>
+        </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <%= yield %>
+</div>
 </body>
 </html>
