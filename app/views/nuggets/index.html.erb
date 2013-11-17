@@ -19,8 +19,8 @@
       <tr>
         <td><%= nugget.title %></td>
         <td><%= nugget.body %></td>
-        <td><%= nugget.author_id %></td>
-        <td><%= nugget.category_id %></td>
+        <td><%= nugget.user.name %></td>
+        <td><%= nugget.category.name %></td>
         <td><%= nugget.published %></td>
         <td><%= link_to 'Show', nugget %></td>
         <td><%= link_to 'Edit', edit_nugget_path(nugget) %></td>
