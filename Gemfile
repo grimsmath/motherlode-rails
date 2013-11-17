@@ -46,3 +46,6 @@ gem 'debugger', group: [:development, :test]
 
 # Use postgresql driver
 gem 'pg'
+
+# ActAsTree provides tree like functionality to ActiveRecord model
+gem 'acts_as_tree'

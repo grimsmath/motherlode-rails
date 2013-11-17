@@ -1,4 +1,6 @@
 Motherlode::Application.routes.draw do
+  resources :categories
+
   root 'users#index'
 
   resources :users
