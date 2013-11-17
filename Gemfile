@@ -49,3 +49,7 @@ gem 'pg'
 
 # ActAsTree provides tree like functionality to ActiveRecord model
 gem 'acts_as_tree'
+
+# Using Foundation due to Matt's comfort with it, can port to Bootstrap if desired
+gem 'compass-rails'
+gem 'zurb-foundation'
