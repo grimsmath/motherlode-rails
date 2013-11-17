@@ -1,0 +1,9 @@
+== README
+
+Traditional request response based fork of Motherlode, a geographic aware
+content management system organized by a strict hierarchy.
+
+= Requirements
+* ruby-2.0
+* bundler
+* postgresql
