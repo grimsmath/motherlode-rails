@@ -2,8 +2,7 @@ Motherlode::Application.routes.draw do
   resources :nuggets
 
   resources :categories
-
-  root 'users#index'
+  root 'categories#index'
 
   resources :users
 

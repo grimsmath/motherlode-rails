@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<h2><%= @category.name %></h2>
+<p><%= @category.description %></p>
+<%= link_to 'Edit', edit_category_path(@category) %>
+<ul>
+  <% @category.children.each do |child_category| %>
+  <li><%= link_to child_category.name, child_category %></li>
+  <% end %>
+</ul>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', @category.parent if @category.parent%>
