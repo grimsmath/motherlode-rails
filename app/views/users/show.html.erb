@@ -1,29 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="large-8 columns large-offset-2">
+  <h2><%= @user.name %></h2>
+  <p><a href="<%= @user.email %>"><%= @user.email %></a></p>
+  <p><%= @user.bio %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+  <h4>Content Authored</h4>
+  <ul>
+    <% Nugget.where(user_id: @user.id).each do |nugget| %>
+    <li><%= link_to nugget.title, nugget_path%></li>
+    <% end %>
+  </ul>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</div>
