@@ -5,14 +5,14 @@ class Category < ActiveRecord::Base
   acts_as_tree order: 'name'
 
   def published_nuggets
-    Nugget.where(category_id: @category.id, published: true)
+    Nugget.where(category_id: id, published: true)
   end
 
   def unpublished_nuggets
-    Nugget.where(category_id: @category.id, published: false)
+    Nugget.where(category_id: id, published: false)
   end
 
   def all_nuggets
-    Nugget.where(category_id: @category.id)
+    Nugget.where(category_id: id)
   end
 end

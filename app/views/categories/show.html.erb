@@ -20,7 +20,7 @@
 
       </div>
   <% end %>
-  <% if current_user.admin? and @category.unpublished_nuggets # || current_user.moderator? @category %>
+  <% if current_user.admin? && @category.unpublished_nuggets.count > 0  # || current_user.moderator? @category %>
       <div class="panel">
         Pending content
         <ul>
