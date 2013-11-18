@@ -9,6 +9,12 @@
     </div>
   <% end %>
 
+<ul>
+  <% Nugget.where(category_id: @category.id).each do |nugget| %>
+      <li><%= link_to nugget.title, nugget_path%></li>
+  <% end %>
+</ul>
+
 
 <%= link_to 'Back', @category.parent if @category.parent%>
 
