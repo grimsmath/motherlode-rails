@@ -1,28 +1,19 @@
 <p id="notice"><%= notice %></p>
+<% unless @nugget.published %>
+    <div class="alert">
+      PENDING MODERATION
+    </div>
+<% end %>
+<h2><%= @nugget.title %></h2>
+<% if @nugget.user %>
+    <h5>by <%= @nugget.user.name %></h5>
+<% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @nugget.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @nugget.body %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @nugget.user.name %>
-</p>
+<%= @nugget.body %>
 
 <p>
   <strong>Category:</strong>
   <%= @nugget.category.name %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @nugget.published %>
 </p>
 
 <%= link_to 'Edit', edit_nugget_path(@nugget) %> |

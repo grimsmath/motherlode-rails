@@ -25,6 +25,8 @@ class NuggetsController < ApplicationController
   # POST /nuggets.json
   def create
     @nugget = Nugget.new(nugget_params)
+    @nugget.published = false
+    @nugget.user = current_user
 
     respond_to do |format|
       if @nugget.save

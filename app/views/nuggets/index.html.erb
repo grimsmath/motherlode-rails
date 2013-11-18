@@ -19,7 +19,7 @@
       <tr>
         <td><%= nugget.title %></td>
         <td><%= nugget.body %></td>
-        <td><%= nugget.user.name %></td>
+        <td><%= nugget.user.name if nugget.user%></td>
         <td><%= nugget.category.name %></td>
         <td><%= nugget.published %></td>
         <td><%= link_to 'Show', nugget %></td>
