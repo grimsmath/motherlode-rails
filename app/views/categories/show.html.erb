@@ -31,12 +31,12 @@
 
 <div class="large-6 columns">
   <% @category.self_and_children.each do |category| %>
-    <% Nugget.where(category_id: category.id).each do |nugget| %>
-        <div class="panel">
-          <h3><%= link_to nugget.title, nugget_path %></h3>
-          <strong>by <%= nugget.user.name %></strong>
-          <p><%= nugget.body %></p>
-        </div>
-    <% end %>
+      <% Nugget.where(category_id: category.id).each do |nugget| %>
+          <div class="panel">
+            <h3><%= link_to nugget.title, nugget %></h3>
+            <strong>by <%= nugget.user.name %></strong>
+            <p><%= nugget.body %></p>
+          </div>
+      <% end %>
   <% end %>
 </div>

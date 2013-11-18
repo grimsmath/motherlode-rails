@@ -6,7 +6,7 @@ Motherlode::Application.routes.draw do
   get 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
 
-  root 'categories#index'
+  root 'categories#product_root'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

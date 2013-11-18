@@ -7,6 +7,12 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  # GET /
+  def product_root
+    @category = current_product
+    render action: 'show'
+  end
+
   # GET /categories/1
   # GET /categories/1.json
   def show
