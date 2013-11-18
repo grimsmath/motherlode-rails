@@ -18,7 +18,7 @@
     <% if current_user %>
         Welcome back, <%= current_user.username %><br />
         <%= link_to 'My Account', current_user %> |
-        <% if current_user.admin %>
+        <% if current_user && current_user.admin %>
             <%= link_to 'Administer Products', users_path %> |
             <%= link_to 'Manage Users', users_path %> |
         <% end %>

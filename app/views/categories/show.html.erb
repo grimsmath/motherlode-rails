@@ -12,7 +12,7 @@
         <h2><%= @category.name %></h2>
 
         <p><%= @category.description %></p>
-        <% if current_user.admin %>
+        <% if current_user && current_user.admin %>
             <%= link_to 'Edit Category', edit_category_path(@category) %> |
         <% end %>
 
@@ -20,7 +20,7 @@
 
       </div>
   <% end %>
-  <% if current_user.admin? && @category.unpublished_nuggets.count > 0  # || current_user.moderator? @category %>
+  <% if current_user && current_user.admin? && @category.unpublished_nuggets.count > 0  # || current_user.moderator? @category %>
       <div class="panel">
         Pending content
         <ul>
