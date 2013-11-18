@@ -1,21 +1,30 @@
-<% unless @category == current_product %>
-    <h2><%= @category.name %></h2>
-    <p><%= @category.description %></p>
-<% end %>
+<div class="large-6 columns">
+  <ul class="breadcrumbs">
+    <% @category.ancestors.reverse.each do |category| %>
+        <li><%= link_to category.name, category %></li>
+    <% end %>
+    <li class="current"><%= link_to @category.name, @category %></li>
+  </ul>
+  <% unless @category.parent.nil? %>
+
+
+      <div class="callout panel">
+        <h2><%= @category.name %></h2>
+        <p><%= @category.description %></p>
+        <%= link_to 'Edit Category', edit_category_path(@category) if current_user.admin? %>
+
+      </div>
+  <% end %>
 
   <% @category.children.each do |child_category| %>
-    <div class="panel">
-      <%= link_to child_category.name, child_category%>
-    </div>
+      <div class="panel">
+        <%= link_to child_category.name, child_category %>
+      </div>
   <% end %>
 
-<ul>
-  <% Nugget.where(category_id: @category.id).each do |nugget| %>
-      <li><%= link_to nugget.title, nugget_path%></li>
-  <% end %>
-</ul>
-
-
-<%= link_to 'Back', @category.parent if @category.parent%>
-
-<%= link_to 'Edit', edit_category_path(@category) %>
+  <ul>
+    <% Nugget.where(category_id: @category.id).each do |nugget| %>
+        <li><%= link_to nugget.title, nugget_path %></li>
+    <% end %>
+  </ul>
+</div>
