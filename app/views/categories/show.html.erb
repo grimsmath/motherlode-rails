@@ -6,12 +6,18 @@
     <li class="current"><%= link_to @category.name, @category %></li>
   </ul>
   <% unless @category.parent.nil? %>
-
-
       <div class="callout panel">
         <h2><%= @category.name %></h2>
         <p><%= @category.description %></p>
-        <%= link_to 'Edit Category', edit_category_path(@category) if current_user.admin? %>
+        <% if current_user.admin %>
+            <%= link_to 'Edit Category', edit_category_path(@category) %> |
+        <% end %>
+
+        <% if current_user.admin # || current_user.moderator? @category %>
+            <%= link_to 'Moderate Content', nil if current_user.admin? %> |
+        <% end %>
+
+        <%= link_to 'Submit Content', new_nugget_path %>
 
       </div>
   <% end %>
@@ -21,10 +27,16 @@
         <%= link_to child_category.name, child_category %>
       </div>
   <% end %>
+</div>
 
-  <ul>
-    <% Nugget.where(category_id: @category.id).each do |nugget| %>
-        <li><%= link_to nugget.title, nugget_path %></li>
+<div class="large-6 columns">
+  <% @category.self_and_children.each do |category| %>
+    <% Nugget.where(category_id: category.id).each do |nugget| %>
+        <div class="panel">
+          <h3><%= link_to nugget.title, nugget_path %></h3>
+          <strong>by <%= nugget.user.name %></strong>
+          <p><%= nugget.body %></p>
+        </div>
     <% end %>
-  </ul>
+  <% end %>
 </div>
