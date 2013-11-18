@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use postgresql as the database for Active Record
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -43,9 +43,6 @@ gem 'unicorn'
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
-
-# Use postgresql driver
-gem 'pg'
 
 # ActAsTree provides tree like functionality to ActiveRecord model
 gem 'acts_as_tree'
