@@ -51,3 +51,6 @@ gem 'acts_as_tree'
 # Using Foundation due to Matt's comfort with it, can port to Bootstrap if desired
 gem 'compass'
 gem 'zurb-foundation'
+
+# Static asset support on Heroku
+gem 'rails_12factor'
