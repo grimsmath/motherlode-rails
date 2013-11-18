@@ -15,13 +15,23 @@
             <%= link_to 'Edit Category', edit_category_path(@category) %> |
         <% end %>
 
-        <% if current_user.admin # || current_user.moderator? @category %>
-            <%= link_to 'Moderate Content', nil if current_user.admin? %> |
-        <% end %>
-
         <%= link_to 'Submit Content', new_nugget_path %>
 
       </div>
+  <% end %>
+
+  <% if current_user.admin? # || current_user.moderator? @category %>
+      <% results = Nugget.where(category_id: @category.id, published: false) %>
+      <% if results %>
+          <div class="panel">
+            Pending content
+            <ul>
+              <% results.each do |nugget| %>
+                <li><%= link_to nugget.title, nugget %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
   <% end %>
 
   <% @category.children.each do |child_category| %>
@@ -33,7 +43,7 @@
 
 <div class="large-6 columns">
   <% @category.self_and_children.each do |category| %>
-      <% Nugget.where(category_id: category.id).each do |nugget| %>
+      <% Nugget.where(category_id: category.id, published: true).each do |nugget| %>
           <div class="panel">
             <h3><%= link_to nugget.title, nugget %></h3>
             <strong>by <%= nugget.user.name %></strong>
