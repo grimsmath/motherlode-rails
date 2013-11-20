@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 271f73becbb2aea9c1b771e09419b9bc0287fe55
+  specs:
+    anjlab-bootstrap-rails (3.0.2.0)
+      railties (>= 3.0)
+      sass (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,7 +39,6 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.0.1)
     builder (3.1.4)
-    chunky_png (1.2.9)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -40,10 +47,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.3.6)
-    compass (0.12.2)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
     debugger (1.6.2)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -52,7 +55,6 @@ GEM
     debugger-ruby_core_source (1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
-    fssm (0.2.10)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -130,17 +132,15 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    zurb-foundation (4.3.2)
-      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   acts_as_tree
+  anjlab-bootstrap-rails!
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 4.0.0)
-  compass
   debugger
   jbuilder (~> 1.2)
   jquery-rails
@@ -152,4 +152,3 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
-  zurb-foundation

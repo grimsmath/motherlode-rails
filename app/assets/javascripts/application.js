@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require foundation
-$(document).foundation();
+
+// Include all twitter's javascripts, revise to actual usage before deployment
+//= require twitter/bootstrap
