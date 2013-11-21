@@ -1,7 +1,23 @@
-<div class="large-8 columns large-offset-2">
-  <h2>Editing user</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Edit User</h4>
+  </div>
 
-<%= render 'form' %>
+  <div class="panel-body">
+    <%= render 'form' %>
+  </div>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+  <div class="panel-footer">
+    <button type="submit" class="btn btn-primary">Save User</button>
+    <%= link_to 'Back', users_path, class: "btn btn-default" %>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $('button[type="submit"]').click(function() {
+      console.log("User edit submit called...");
+      $('form').submit();
+    })
+  })
+</script>
