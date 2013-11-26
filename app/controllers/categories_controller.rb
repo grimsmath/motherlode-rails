@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
   # GET /
   def product_root
     @category = current_product
+    @categories = current_products
     render action: 'show'
   end
 

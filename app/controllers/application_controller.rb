@@ -14,5 +14,10 @@ class ApplicationController < ActionController::Base
     @current_product = product || Category.new({name: 'Product Undefined'})
   end
 
-  helper_method :current_user, :current_product
+  def current_products
+    products = Category.where(parent_id: nil)
+    @current_products = products || Category.new({name: 'No Products Defined'})
+  end
+
+  helper_method :current_user, :current_product, :current_products
 end

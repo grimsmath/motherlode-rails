@@ -1,4 +1,5 @@
-<div class="container">
+<div class="col-md-12">
+  <% unless @category.parent.nil? %>
   <ol class="breadcrumb">
     <% @category.ancestors.reverse.each do |category| %>
         <li><%= link_to category.name, category %></li>
@@ -7,6 +8,7 @@
       <%= link_to @category.name, @category %>
     </li>
   </ol>
+  <% end %>
 </div>
 
 <div class="col-md-12">
@@ -23,7 +25,7 @@
           <% end %>
 
           <% if current_user && current_user.admin? && @category.unpublished_nuggets.count > 0  # || current_user.moderator? @category %>
-            <div class="panel">
+            <div class="panel panel-default">
               Pending content
               <ul>
                 <% @category.unpublished_nuggets.each do |nugget| %>
@@ -33,26 +35,29 @@
             </div>
           <% end %>
 
-          <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">Nuggets for <%= @category.name %></div>
+            <div class="panel-body">
             <% @category.self_and_children.each do |category| %>
               <ul>
               <% category.published_nuggets.each do |nugget| %>
-                <li>
-                  <h4><%= link_to nugget.title, nugget %> (<%= nugget.user.name %>)</h4>
-                </li>
+                <li><h4><%= link_to nugget.title, nugget %> (<%= nugget.user.name %>)</h4></li>
               <% end %>
-
               </ul>
             <% end %>
+            </div>
           </div>
 
-          <ul class="list-group">
-            <% @category.children.each do |child_category| %>
-              <li class="list-group-item">
-                <%= link_to child_category.name, child_category %>
-              </li>
-            <% end %>
-          </ul>
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= @category.name %> Sub Categories</div>
+            <ul class="list-group">
+              <% @category.children.each do |child_category| %>
+                <li class="list-group-item">
+                  <%= link_to child_category.name, child_category %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
 
         <div class="panel-footer">
@@ -60,6 +65,28 @@
           <%= link_to 'Back', :back, class: "btn btn-default" %>
         </div>
       </div>
+  <% else %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Motherlode Products</h4>
+      </div>
+      <ul class="list-group">
+        <% @categories.each do |category| %>
+          <li class="list-group-item"><%= link_to category.name, category %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Categories for <%= @category.name %></div>
+      <ul class="list-group">
+        <% @category.children.each do |child_category| %>
+          <li class="list-group-item">
+            <%= link_to child_category.name, child_category %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 </div>
 
