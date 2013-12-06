@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Motherlode</title>
+  <title>Home | Motherlode</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "vendor/custom.modernizr" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset='64' onLoad="$.stellar();" class="down-50px">
+<body class="down-50px" data-spy="scroll" data-target=".navbar" data-offset='64' onLoad="$.stellar();">
 
-<%= render "partials/sitenav" %>
+  <%= render "partials/sitenav" %>
 
-<%= render "partials/alert" %>
+  <%= render "partials/alert" %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
