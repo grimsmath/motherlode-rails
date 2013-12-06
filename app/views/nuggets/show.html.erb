@@ -1,20 +1,34 @@
-<p id="notice"><%= notice %></p>
-<% unless @nugget.published %>
-    <div class="alert">
-      PENDING MODERATION
+<div class="container down-20px">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><%= @nugget.title %></h4>
     </div>
-<% end %>
-<h2><%= @nugget.title %></h2>
-<% if @nugget.user %>
-    <h5>by <%= @nugget.user.name %></h5>
-<% end %>
 
-<%= @nugget.body %>
+    <div class="panel-body">
+      <p id="notice"><%= notice %></p>
+      <% unless @nugget.published %>
+        <div class="alert">
+          PENDING MODERATION
+        </div>
+      <% end %>
 
-<p>
-  <strong>Category:</strong>
-  <%= @nugget.category.name %>
-</p>
+      <% if @nugget.user %>
+        <h5>by <%= @nugget.user.name %></h5>
+      <% end %>
 
-<%= link_to 'Edit', edit_nugget_path(@nugget) %> |
-<%= link_to 'Back', nuggets_path %>
+      <%= @nugget.body %>
+
+      <% if @nugget.category nil? %>
+        <p>
+          <strong>Category:</strong>
+          <%= @nugget.category.name %>
+        </p>
+      <% end %>
+    </div>
+
+    <div class="panel-footer">
+      <%= link_to 'Back', nuggets_path, class: "btn btn-primary" %>
+      <%= link_to 'Edit', edit_nugget_path(@nugget), class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
