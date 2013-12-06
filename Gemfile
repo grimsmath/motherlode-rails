@@ -50,3 +50,6 @@ gem 'anjlab-bootstrap-rails', {require: 'bootstrap-rails', github: 'anjlab/boots
 
 # Static asset support on Heroku
 gem 'rails_12factor'
+
+# Fix jquery bindings compatibility with turbolinks
+gem 'jquery-turbolinks'
