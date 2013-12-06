@@ -1,3 +1,8 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background: url('bg-home-1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+}

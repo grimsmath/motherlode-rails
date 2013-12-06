@@ -1,0 +1,15 @@
+<p><%= @category.description %></p>
+<% if current_user && current_user.admin %>
+  <%= link_to 'Edit Category', edit_category_path(@category) %> |
+<% end %>
+
+<% if current_user && current_user.admin? && @category.unpublished_nuggets.count > 0  # || current_user.moderator? @category %>
+  <div class="panel panel-default">
+    Pending content
+    <ul>
+      <% @category.unpublished_nuggets.each do |nugget| %>
+        <li><%= link_to nugget.title, nugget %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
