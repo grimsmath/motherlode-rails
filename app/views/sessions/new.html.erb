@@ -1,15 +1,25 @@
-<div class="large-4 columns large-offset-4 panel    ">
-    <h3>Log in</h3>
+<div class="col-lg-4 col-lg-offset-4 down-50px">
+  <%= form_tag sessions_path, html: { :role => "form" } do %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Log In to Motherlode</h4>
+      </div>
 
-    <%= form_tag sessions_path do %>
-        <div class="field">
+      <div class="panel-body">
+        <div class="form-group">
           <%= label_tag :username %>
-          <%= text_field_tag :username, params[:username] %>
+          <%= text_field_tag :username, params[:username], class: "form-control" %>
         </div>
-        <div class="field">
+        <div class="form-group">
           <%= label_tag :password %>
-          <%= password_field_tag :password %>
+          <%= password_field_tag :password, nil, class: "form-control" %>
         </div>
-        <div class="actions"><%= submit_tag 'Log in' %></div>
-    <% end %>
+      </div>
+
+      <div class="panel-footer">
+        <%= submit_tag 'Log in', class: "btn btn-primary" %>
+        <a class="btn btn-link" href="#">Not a Member? Signup Now!</a>
+      </div>
+    </div>
+  <% end %>
 </div>
