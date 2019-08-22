@@ -1,20 +1,21 @@
-ruby '2.0.0'
 source 'https://rubygems.org'
 
+ruby '2.6.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '6.0.0.rc1'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18.4'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sassc-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -26,7 +27,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -34,19 +35,20 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt'
 
 # Use unicorn as the app server
 gem 'unicorn'
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+# gem 'debugger', group: [:development, :test]
 
 # ActAsTree provides tree like functionality to ActiveRecord model
 gem 'acts_as_tree'
 
 # Use Twitter Bootstrap 3.x using SASS
-gem 'anjlab-bootstrap-rails', {require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'}
+# gem 'anjlab-bootstrap-rails', {require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'}
+gem 'anjlab-bootstrap-rails'
 
 # Static asset support on Heroku
 gem 'rails_12factor'
